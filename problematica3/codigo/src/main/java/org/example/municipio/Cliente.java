@@ -11,14 +11,14 @@ public class Cliente {
     Medidor[] medidores;
 
 
-    public Cliente(String ndi, String nombres, String apellidos, String direccion, String telefono, String correoElectronico, Medidor[] medidores) {
+    public Cliente(String ndi, String nombres, String apellidos, String direccion, String telefono, String correoElectronico) {
         this.ndi = ndi;
         this.nombres = nombres;
         this.apellidos = apellidos;
         this.direccion = direccion;
         this.telefono = telefono;
         this.correoElectronico = correoElectronico;
-        this.medidores = medidores;
+        this.medidores=new Medidor[]{};
     }
 
     public Medidor[] getMedidores() {
