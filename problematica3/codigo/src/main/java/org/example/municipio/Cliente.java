@@ -7,15 +7,26 @@ public class Cliente {
     String direccion;
     String telefono;
     String correoElectronico;
+    //list of medidores
+    Medidor[] medidores;
 
 
-    public Cliente(String ndi, String nombres, String apellidos, String direccion, String telefono, String correoElectronico) {
+    public Cliente(String ndi, String nombres, String apellidos, String direccion, String telefono, String correoElectronico, Medidor[] medidores) {
         this.ndi = ndi;
         this.nombres = nombres;
         this.apellidos = apellidos;
         this.direccion = direccion;
         this.telefono = telefono;
         this.correoElectronico = correoElectronico;
+        this.medidores = medidores;
+    }
+
+    public Medidor[] getMedidores() {
+        return medidores;
+    }
+
+    public void setMedidores(Medidor[] medidores) {
+        this.medidores = medidores;
     }
 
     public String getNdi() {
@@ -80,6 +91,15 @@ public class Cliente {
 
     //buy medidor
     public void comprarMedidor(Medidor medidor){
-        System.out.println("El cliente "+this.nombres+" ha comprado el medidor "+medidor.getCodigo());
+        //add medidor to list
+        Medidor[] newMedidores = new Medidor[medidores.length + 1];
+        for (int i = 0; i < medidores.length; i++) {
+            newMedidores[i] = medidores[i];
+        }
+        newMedidores[newMedidores.length - 1] = medidor;
+        medidores = newMedidores;
+        //print buy
+        System.out.println("Medidor comprado: " + medidor);
+
     }
 }
